@@ -1,0 +1,4 @@
+CLFAGS=-Werror -Weverything -Wno-c++98-compat -std=c++11
+CC=clang++
+: foreach src/*.cpp |> $(CC) $(CFLAGS) -Iinclude/ -c %f -o %o |> build/%B.o
+: build/*.o |> clang++  %f -o %o |> bin/main
